@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:money_spending_app/models/billionaire_model.dart';
 
 class BillionairesViewModel extends GetxController{
-    List<BillionaireModel> billionaires = [
+   var billionaires =<BillionaireModel> [
 
         BillionaireModel(name: "Elon Musk",netWorth: 241000000000,source: "Tesla, SpaceX",country:"United States",imgUrl: "https://i1.sndcdn.com/avatars-000469688319-4bp07i-t500x500.jpg"),
         BillionaireModel(name: "Jeff Bezos",netWorth: 169000000000,source: "Amazon",country:"United States",imgUrl: "https://i1.sndcdn.com/artworks-FA9a8LRz7zaYDroe-371v2w-t500x500.jpg"),
@@ -18,7 +18,40 @@ class BillionairesViewModel extends GetxController{
         BillionaireModel(name: "Beyoncé Knowles",netWorth: 540000000,source: "Musician",country:"United States",imgUrl: "https://hips.hearstapps.com/hmg-prod/images/beyonce-attends-tidal-x-1015-on-october-15-2016-in-new-york-city-photo-by-theo-wargogetty-images-for-tidal-sqaure.jpg"),
         BillionaireModel(name: "Jay-Z",netWorth: 2500000000,source: "Musician",country:"California",imgUrl: "https://cdns-images.dzcdn.net/images/cover/7d2dd47a9035f1d29a267c52f2f58d42/500x500.jpg"),
         BillionaireModel(name: "Muhammed Bayhan",netWorth: 27,source: "Developer",country:"Turkey",imgUrl: "https://t4.ftcdn.net/jpg/03/87/94/85/360_F_387948571_FgeXafIsWbmAjPuoM5r21SR0M48CW9Hc.jpg"),
-    ];
+    ].obs;
 
     int index=0;
+
+
+    void buyItem(int price){
+      if (billionaires[index].netWorth!>0) {
+
+        if (billionaires[index].netWorth!<price) {
+        
+      Get.snackbar("Error", "insufficient funds");
+        }
+        else{
+         billionaires[index].netWorth=billionaires[index].netWorth!-price;
+      billionaires.refresh();
+      }
+         
+      }
+      else{
+      Get.snackbar("Error", "insufficient funds");
+      }
+
+    
+    }
+    void sellItem(int price){
+     if (billionaires[index].netWorth!>0) {
+        billionaires[index].netWorth=billionaires[index].netWorth!+price;
+      billionaires.refresh();
+     } else {
+       
+     }
+    }
+
+
+
+
 }

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:money_spending_app/constants/page_padding.dart';
 import 'package:money_spending_app/models/billionaire_model.dart';
 import 'package:money_spending_app/viewmodels/billionaires_view_model.dart';
-import 'package:money_spending_app/views/home_view.dart';
+import 'package:money_spending_app/views/product_view.dart';
 
 class BillionairesView extends StatelessWidget {
   const BillionairesView({super.key});
@@ -103,7 +103,7 @@ class BillionairesView extends StatelessWidget {
                                           ElevatedButton(
                                               onPressed: () {
                                                 _billionairesViewModel.index=index;
-                                                Get.to(HomeView());
+                                                Get.to(ProductView());
                                               },
                                               child: Text("Select")),
                                         ],
