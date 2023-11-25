@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_spending_app/viewmodels/billionaires_view_model.dart';
+import 'package:money_spending_app/viewmodels/cart_view_model.dart';
 import 'package:money_spending_app/viewmodels/product_view_model.dart';
+import 'package:money_spending_app/views/cart_view.dart';
 
 class ProductView extends StatefulWidget {
   const ProductView({super.key});
@@ -12,14 +14,17 @@ class ProductView extends StatefulWidget {
 
 class _ProductViewState extends State<ProductView> {
   final BillionairesViewModel _billionairesViewModel = Get.find();
+
    final ProductViewModel _productViewModel = Get.put(ProductViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          
           title: Obx(() => Text(
               "${_billionairesViewModel.billionaires[_billionairesViewModel.index].netWorth}\$")),
+              actions: [IconButton(onPressed: (){Get.to(CartView());}, icon: Icon(Icons.shopping_basket_outlined))],
         ),
         body: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -40,11 +45,12 @@ class _ProductViewState extends State<ProductView> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                     ElevatedButton(onPressed: (){
+                      
                     _billionairesViewModel.sellItem(_productViewModel.products[index].price!);
                      }, child: Text("Sell"),style: ElevatedButton.styleFrom(backgroundColor: Colors.red),),
                     Text("0",style: Theme.of(context).textTheme.titleLarge,),
                     ElevatedButton(onPressed: (){
-
+                      
                       _billionairesViewModel.buyItem(_productViewModel.products[index].price!);
                     }, child: Text("Buy"),style: ElevatedButton.styleFrom(backgroundColor: Colors.green),),
                   ],)
