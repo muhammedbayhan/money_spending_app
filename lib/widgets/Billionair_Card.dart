@@ -56,24 +56,7 @@ int index;
             
                           ],
                         ),
-                        Text(
-                          _billionairesViewModel.billionaires[index].source ?? "",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          _billionairesViewModel.billionaires[index].country ?? "",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                        ),
+                        Text("${_billionairesViewModel.billionaires[index].source},${_billionairesViewModel.billionaires[index].country}"),
                         Container(
                             width: double.infinity,
                             color: Colors.black,
@@ -91,13 +74,16 @@ int index;
                                           color: Colors.green,
                                           fontWeight: FontWeight.bold),
                                 ),
-                                ElevatedButton(
-                                    onPressed: () {
-                                      _billionairesViewModel.selectId=index;
-                                  
-                                    Get.offAll(ProductView());
-                                    },
-                                    child: Text("Select")),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height*0.1,
+                                  child: ElevatedButton(
+                                      onPressed: () {
+                                        _billionairesViewModel.selectId=index;
+                                    
+                                      Get.offAll(ProductView());
+                                      },
+                                      child: Text("Select")),
+                                ),
                               ],
                             )),
                       ]),

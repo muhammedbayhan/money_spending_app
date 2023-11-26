@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Money Spending App',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(centerTitle: true),
-      // fontFamily: GoogleFonts.lexend().fontFamily,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: false,
+        
       ),
       home: const BillionairesView(),
     );

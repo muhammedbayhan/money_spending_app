@@ -20,7 +20,7 @@ class BillionairesViewModel extends GetxController{
         BillionaireModel(id:9,name: "Taylor Swift",netWorth: 1100000000,source: "Musician",country:"United States",imgUrl: "https://i.pinimg.com/564x/a4/7e/b5/a47eb5cd0c74c34e2d95def679eb8c7d.jpg"),
         BillionaireModel(id:10,name: "Beyoncé Knowles",netWorth: 540000000,source: "Musician",country:"United States",imgUrl: "https://hips.hearstapps.com/hmg-prod/images/beyonce-attends-tidal-x-1015-on-october-15-2016-in-new-york-city-photo-by-theo-wargogetty-images-for-tidal-sqaure.jpg"),
         BillionaireModel(id:11,name: "Jay-Z",netWorth: 2500000000,source: "Musician",country:"California",imgUrl: "https://cdns-images.dzcdn.net/images/cover/7d2dd47a9035f1d29a267c52f2f58d42/500x500.jpg"),
-        BillionaireModel(id:12,name: "Muhammed Bayhan",netWorth: 27,source: "Developer",country:"Turkey",imgUrl: "https://t4.ftcdn.net/jpg/03/87/94/85/360_F_387948571_FgeXafIsWbmAjPuoM5r21SR0M48CW9Hc.jpg"),
+        BillionaireModel(id:12,name: "Muhammed Bayhan",netWorth: 27,source: "Developer",country:"Turkey",imgUrl: "https://bgcp.bionluk.com/images/avatar/200x200/69bcf9a7-9aa3-404a-9859-eed04d0f0fba.png"),
     ].obs;
 
     int selectId=1;
