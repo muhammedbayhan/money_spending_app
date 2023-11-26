@@ -3,6 +3,7 @@ import 'package:money_spending_app/models/billionaire_model.dart';
 import 'package:money_spending_app/viewmodels/cart_view_model.dart';
 
 class BillionairesViewModel extends GetxController{
+   final CartViewModel _cartViewModel = Get.put(CartViewModel());
 
    var billionaires =<BillionaireModel> [
 
@@ -22,28 +23,41 @@ class BillionairesViewModel extends GetxController{
         BillionaireModel(id:12,name: "Muhammed Bayhan",netWorth: 27,source: "Developer",country:"Turkey",imgUrl: "https://t4.ftcdn.net/jpg/03/87/94/85/360_F_387948571_FgeXafIsWbmAjPuoM5r21SR0M48CW9Hc.jpg"),
     ].obs;
 
-    int index=0;
+    int selectId=1;
 
 
-    void buyItem(int price){
-      if (billionaires[index].netWorth!>0) {
+    void buyItem(int id, String name, int price, String imgUrl){
+      if (billionaires[selectId].netWorth!>0) {
 
-        if (billionaires[index].netWorth!<price) {
+        if (billionaires[selectId].netWorth!<price) {
         
       Get.snackbar("Error", "insufficient funds");
         }
         else{
-        
-         billionaires[index].netWorth=billionaires[index].netWorth!-price;
-      billionaires.refresh();
-      }
+      
+         _cartViewModel.addItem(id, name, price, imgUrl);
          
+             billionaires.refresh();
+    
+      }
+          
       }
       else{
       Get.snackbar("Error", "insufficient funds");
       }
 
+     billionaires.refresh();
+     print(billionaires[selectId].netWorth);
+    }
+    void sellItem(int id,int price){
+     if (billionaires[selectId].netWorth!>0) {
+        _cartViewModel.removeItem(id);
     
+     } else {
+       
+     }
+       billionaires.refresh();
+    }
 
 
 

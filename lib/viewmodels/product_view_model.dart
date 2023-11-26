@@ -10,14 +10,14 @@ ProductModel(id: 4,name:"Iphone 15" ,price:1000 ,imgUrl:"https://www.incehesap.c
 ProductModel(id: 5,name:"MacBook Pro 14' M2 " ,price:4000 ,imgUrl:"https://www.miniode.com/image/cache/data/resimler/apple-m2-max-cipe-sahip-2023-macbook-pro-laptop-14-2-inc-liquid-retina-xdr-ekran-32-gb-ram-1-tb-ssd-depolama-arkadan-aydinl-90060-500x500.jpg" ),
 ProductModel(id: 6,name:"Rolex" ,price:10000 ,imgUrl:"https://diamondsourcenyc.com/cdn/shop/products/rolex-datejust-31-mm-ref-278274-0028-luxury-swiss-watches-541.jpg?v=1645762381" ),
 ProductModel(id: 7,name:"Diamond" ,price:999999999 ,imgUrl:"https://5.imimg.com/data5/NB/JB/MY-24165467/synthetic-diamond-500x500.jpg" ),
-ProductModel(id: 8,name:"Product X" ,price:100000000 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
-ProductModel(id: 9,name:"Product X" ,price:10000000 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
-ProductModel(id: 10,name:"Product X" ,price:100000 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
-ProductModel(id: 11,name:"Product X" ,price:10000 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
-ProductModel(id: 12,name:"Product X" ,price:1000 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
-ProductModel(id: 13,name:"Product X" ,price:100 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
-ProductModel(id: 14,name:"Product X" ,price:10 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
-ProductModel(id: 15,name:"Product X" ,price:1 ,imgUrl:"https://cdn-icons-png.flaticon.com/512/3784/3784325.png" ),
+ProductModel(id: 8,name:"Product X1" ,price:100000000 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
+ProductModel(id: 9,name:"Product X2" ,price:10000000 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
+ProductModel(id: 10,name:"Product X3" ,price:100000 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
+ProductModel(id: 11,name:"Product X4" ,price:10000 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
+ProductModel(id: 12,name:"Product X5" ,price:2147483646 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
+ProductModel(id: 13,name:"Product X6" ,price:100 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
+ProductModel(id: 14,name:"Product X7" ,price:10 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
+ProductModel(id: 15,name:"Product X8" ,price:1 ,imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWVQixIGdAMIvs7wqNI9UtFoTzqMTp05L1Q&usqp=CAU" ),
 
   ].obs;
   

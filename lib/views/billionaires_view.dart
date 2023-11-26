@@ -102,7 +102,7 @@ class BillionairesView extends StatelessWidget {
                                           ),
                                           ElevatedButton(
                                               onPressed: () {
-                                                _billionairesViewModel.index=index;
+                                                _billionairesViewModel.selectId=index;
                                                 Get.to(ProductView());
                                               },
                                               child: Text("Select")),
