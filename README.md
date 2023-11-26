@@ -9,6 +9,10 @@ A new Flutter project.
 ![ss](https://github.com/muhammedbayhan/money_spending_app/blob/main/screenshots/4.png)
 
 
+
+https://github.com/muhammedbayhan/money_spending_app/assets/76851132/c096b36f-e733-4884-8050-4093febccf9d
+
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
