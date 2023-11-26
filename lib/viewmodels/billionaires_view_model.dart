@@ -44,15 +44,6 @@ class BillionairesViewModel extends GetxController{
       }
 
     
-    }
-    void sellItem(int price){
-     if (billionaires[index].netWorth!>0) {
-        billionaires[index].netWorth=billionaires[index].netWorth!+price;
-      billionaires.refresh();
-     } else {
-       
-     }
-    }
 
 
 
