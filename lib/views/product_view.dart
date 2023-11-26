@@ -62,8 +62,11 @@ class _ProductViewState extends State<ProductView> {
                       ElevatedButton(
                         onPressed: () {
                           _billionairesViewModel.sellItem(
+                            
                               _productViewModel.products[index].id!,
-                              _productViewModel.products[index].price!);
+                              _productViewModel.products[index].price!,
+                              _cartViewModel.getPiece(_productViewModel.products[index].id!)
+                              );
                         },
                         child: Text("Sell"),
                         style: ElevatedButton.styleFrom(

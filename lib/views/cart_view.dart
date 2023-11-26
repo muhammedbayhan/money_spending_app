@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:money_spending_app/viewmodels/cart_view_model.dart';
 import 'package:money_spending_app/viewmodels/product_view_model.dart';
 
+import '../viewmodels/billionaires_view_model.dart';
+
 class CartView extends StatefulWidget {
   CartView({super.key});
 
@@ -12,6 +14,8 @@ class CartView extends StatefulWidget {
 
 class _CartViewState extends State<CartView> {
   final CartViewModel _cartViewModel = Get.put(CartViewModel());
+    final BillionairesViewModel _billionairesViewModel = Get.find();
+
 
 @override
   void initState() {
@@ -58,7 +62,9 @@ class _CartViewState extends State<CartView> {
       
              IconButton(onPressed: (){
              
-                    _cartViewModel.removeItem(_cartViewModel.cartItems[index].id!);
+                   // _cartViewModel.removeItem(_cartViewModel.cartItems[index].id!);
+_billionairesViewModel.sellItem(_cartViewModel.cartItems[index].id!, (_cartViewModel.cartItems[index].totalPrice!/_cartViewModel.cartItems[index].piece!).toInt(), _cartViewModel.cartItems[index].piece!);
+
       _cartViewModel.printTotalPrice();
              }, icon: Icon(Icons.remove,color: Colors.red,))
             ],

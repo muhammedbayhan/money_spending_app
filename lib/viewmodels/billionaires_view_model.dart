@@ -36,7 +36,7 @@ class BillionairesViewModel extends GetxController{
         else{
       
          _cartViewModel.addItem(id, name, price, imgUrl);
-         
+        billionaires[selectId].netWorth=  billionaires[selectId].netWorth!-price;
              billionaires.refresh();
     
       }
@@ -49,9 +49,10 @@ class BillionairesViewModel extends GetxController{
      billionaires.refresh();
      print(billionaires[selectId].netWorth);
     }
-    void sellItem(int id,int price){
-     if (billionaires[selectId].netWorth!>0) {
+    void sellItem(int id,int price,int piece){
+     if (billionaires[selectId].netWorth!>0 && piece>0) {
         _cartViewModel.removeItem(id);
+        billionaires[selectId].netWorth=  billionaires[selectId].netWorth!+price;
     
      } else {
        
