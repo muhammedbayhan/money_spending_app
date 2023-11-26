@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:money_spending_app/constants/page_padding.dart';
 import 'package:money_spending_app/viewmodels/billionaires_view_model.dart';
 import 'package:money_spending_app/viewmodels/cart_view_model.dart';
 import 'package:money_spending_app/viewmodels/product_view_model.dart';
 import 'package:money_spending_app/views/cart_view.dart';
+import 'package:money_spending_app/widgets/Product_Card.dart';
 
 class ProductView extends StatefulWidget {
   const ProductView({super.key});
@@ -22,6 +24,10 @@ class _ProductViewState extends State<ProductView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(backgroundImage: NetworkImage(_billionairesViewModel.billionaires[_billionairesViewModel.selectId].imgUrl!),),
+          ),
           title: Obx(() => Text(
               "${_billionairesViewModel.billionaires[_billionairesViewModel.selectId].netWorth}\$")),
           actions: [
@@ -33,72 +39,25 @@ class _ProductViewState extends State<ProductView> {
                   onPressed: () {
                     Get.to(CartView());
                   },
-                  icon: Icon(Icons.shopping_basket_outlined)),
+                  icon: Icon(Icons.shopping_basket)),
                   CircleAvatar(radius: 10,backgroundColor: Colors.red,child: Text(_cartViewModel.cartItems.length.toString()),)
              ],),
            )
           ],
         ),
-        body: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: 2 / 3),
-            itemCount: _productViewModel.products.length,
-            itemBuilder: (context, index) {
-              return Container(
-                color: Color.fromARGB(255, 231, 231, 231),
-                child: Column(children: [
-                  Image.network(
-                    _productViewModel.products[index].imgUrl ?? "",
-                  ),
-                  Text("${_productViewModel.products[index].name}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(fontWeight: FontWeight.bold)),
-                  Text("${_productViewModel.products[index].price}\$",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .copyWith(fontWeight: FontWeight.bold)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          _billionairesViewModel.sellItem(
-                            
-                              _productViewModel.products[index].id!,
-                              _productViewModel.products[index].price!,
-                              _cartViewModel.getPiece(_productViewModel.products[index].id!)
-                              );
-                        },
-                        child: Text("Sell"),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red),
-                      ),
-                 Obx(() => Text(
-          "${_cartViewModel.getPiece(_productViewModel.products[index].id!)}",
-          style: Theme.of(context).textTheme.titleLarge,
-        )),
-                      ElevatedButton(
-                        onPressed: () {
-                          _billionairesViewModel.buyItem(
-                              _productViewModel.products[index].id!,
-                              _productViewModel.products[index].name!,
-                              _productViewModel.products[index].price!,
-                              _productViewModel.products[index].imgUrl!);
-                        },
-                        child: Text("Buy"),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green),
-                      ),
-                    ],
-                  )
-                ]),
-              );
-            }));
+        body: Padding(
+          padding: PagePadding.pagePadding,
+          child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  childAspectRatio: 2 / 3),
+              itemCount: _productViewModel.products.length,
+              itemBuilder: (context, index) {
+                return Product_Card(index:index,productViewModel: _productViewModel, cartViewModel: _cartViewModel, billionairesViewModel: _billionairesViewModel);
+              }),
+        ));
   }
 }
+

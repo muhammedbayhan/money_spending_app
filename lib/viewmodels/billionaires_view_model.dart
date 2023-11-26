@@ -24,6 +24,8 @@ class BillionairesViewModel extends GetxController{
     ].obs;
 
     int selectId=1;
+  
+
 
 
     void buyItem(int id, String name, int price, String imgUrl){
@@ -31,8 +33,8 @@ class BillionairesViewModel extends GetxController{
 
         if (billionaires[selectId].netWorth!<price) {
         
-      Get.snackbar("Error", "insufficient funds");
-        }
+  
+ }
         else{
       
          _cartViewModel.addItem(id, name, price, imgUrl);
@@ -43,7 +45,7 @@ class BillionairesViewModel extends GetxController{
           
       }
       else{
-      Get.snackbar("Error", "insufficient funds");
+        print("Error Yetersiz Bakiye");
       }
 
      billionaires.refresh();

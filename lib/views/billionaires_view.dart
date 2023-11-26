@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_spending_app/constants/page_padding.dart';
-import 'package:money_spending_app/models/billionaire_model.dart';
 import 'package:money_spending_app/viewmodels/billionaires_view_model.dart';
 import 'package:money_spending_app/views/product_view.dart';
 
@@ -103,7 +102,8 @@ class BillionairesView extends StatelessWidget {
                                           ElevatedButton(
                                               onPressed: () {
                                                 _billionairesViewModel.selectId=index;
-                                                Get.to(ProductView());
+                                            
+                                              Get.offAll(ProductView());
                                               },
                                               child: Text("Select")),
                                         ],

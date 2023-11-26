@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:money_spending_app/constants/page_padding.dart';
 import 'package:money_spending_app/viewmodels/cart_view_model.dart';
-import 'package:money_spending_app/viewmodels/product_view_model.dart';
-
+import 'package:money_spending_app/widgets/Cart_Tile.dart';
 import '../viewmodels/billionaires_view_model.dart';
 
 class CartView extends StatefulWidget {
@@ -14,69 +14,47 @@ class CartView extends StatefulWidget {
 
 class _CartViewState extends State<CartView> {
   final CartViewModel _cartViewModel = Get.put(CartViewModel());
-    final BillionairesViewModel _billionairesViewModel = Get.find();
+  final BillionairesViewModel _billionairesViewModel = Get.find();
 
-
-@override
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _cartViewModel.printTotalPrice();
   }
+
   @override
   Widget build(BuildContext context) {
     return Obx(
-      ()=> Scaffold(
+      () => Scaffold(
         appBar: AppBar(
           title: Text("Cart"),
         ),
-      bottomNavigationBar: BottomNavigationBar(
-        
+        bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money_sharp),
-              label: _cartViewModel.total.toString(),
+              icon: Icon(Icons.shopping_cart),
+              label: "${_cartViewModel.total}\$",
             ),
-        
             BottomNavigationBarItem(
-              icon: Icon(Icons.clear,color: Colors.red,),
+              icon: Icon(
+                Icons.clear,
+                color: Colors.red,
+              ),
               label: 'Clear',
-              
             ),
           ],
         ),
-        
-        body:ListView.builder(
-            itemCount: _cartViewModel.cartItems.length,
-            itemBuilder: (context, index) {
-              return Card(
-                child: ListTile(
-                  leading: CircleAvatar(child: Image.network( _cartViewModel.cartItems[index].imgUrl!),),
-                  title: Text(_cartViewModel.cartItems[index].name!),
-                  subtitle: Text(_cartViewModel.cartItems[index].piece!.toString()),
-                  trailing:FittedBox(
-            fit: BoxFit.fill,
-            child: Row(
-            children: <Widget>[
-                              Text(_cartViewModel.cartItems[index].totalPrice!.toString(),style: Theme.of(context).textTheme.titleLarge,),
-      
-             IconButton(onPressed: (){
-             
-                   // _cartViewModel.removeItem(_cartViewModel.cartItems[index].id!);
-_billionairesViewModel.sellItem(_cartViewModel.cartItems[index].id!, (_cartViewModel.cartItems[index].totalPrice!/_cartViewModel.cartItems[index].piece!).toInt(), _cartViewModel.cartItems[index].piece!);
-
-      _cartViewModel.printTotalPrice();
-             }, icon: Icon(Icons.remove,color: Colors.red,))
-            ],
-            ),
-          ),
-                  
-                  
-                  
-                
-                ),
-              );
-            }),
+        body: Padding(
+          padding: PagePadding.pagePadding,
+          child: ListView.builder(
+              itemCount: _cartViewModel.cartItems.length,
+              itemBuilder: (context, index) {
+                return Card_Tile(
+                    index: index,
+                    cartViewModel: _cartViewModel,
+                    billionairesViewModel: _billionairesViewModel);
+              }),
+        ),
       ),
     );
   }
