@@ -25,11 +25,18 @@ class _ProductViewState extends State<ProductView> {
           title: Obx(() => Text(
               "${_billionairesViewModel.billionaires[_billionairesViewModel.selectId].netWorth}\$")),
           actions: [
-            IconButton(
-                onPressed: () {
-                  Get.to(CartView());
-                },
-                icon: Icon(Icons.shopping_basket_outlined))
+           Obx(
+             ()=> Stack(
+              alignment: Alignment.topRight,
+              children: [
+               IconButton(
+                  onPressed: () {
+                    Get.to(CartView());
+                  },
+                  icon: Icon(Icons.shopping_basket_outlined)),
+                  CircleAvatar(radius: 10,backgroundColor: Colors.red,child: Text(_cartViewModel.cartItems.length.toString()),)
+             ],),
+           )
           ],
         ),
         body: GridView.builder(
