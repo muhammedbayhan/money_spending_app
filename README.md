@@ -3,6 +3,11 @@
 A new Flutter project.
 
 ## Getting Started
+![ss](https://github.com/muhammedbayhan/money_spending_app/blob/main/screenshots/1.png)
+![ss](https://github.com/muhammedbayhan/money_spending_app/blob/main/screenshots/2.png)
+![ss](https://github.com/muhammedbayhan/money_spending_app/blob/main/screenshots/3.png)
+![ss](https://github.com/muhammedbayhan/money_spending_app/blob/main/screenshots/4.png)
+
 
 This project is a starting point for a Flutter application.
 
